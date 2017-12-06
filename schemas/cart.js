@@ -1,0 +1,49 @@
+var mongoose=require('mongoose')
+var CartSchema=new mongoose.Schema({
+	uid:String,//用户id
+	price:{type:Number,default:13},
+	pay:{
+		type:Boolean,
+		default:false
+	},
+	reached:{
+        type:Boolean,
+        default:false
+	},
+	name:String,
+	address:String,
+	phoneNum:String,
+	meta:{
+		createAt:{
+			type:Date,
+			default:Date.now()
+		},
+		updateAt:{
+			type:Date,
+			default:Date.now()
+		}
+	}
+})
+CartSchema.pre('save',function(next){
+	if(this.isNew){
+		this.meta.createAt=this.meta.updateAt=Date.now()
+	}
+	else{
+		this.meta.updateAt=Date.now()
+	}
+	next()
+})
+CartSchema.statics={
+	fetch:function(cb){
+		return this
+		.find({})
+		.sort('meta.updateAt')
+		.exec(cb)
+	},
+	findById:function(id,cb){
+		return this
+		.findOne({_id:id})
+		.exec(cb)
+	}
+}
+module.exports=CartSchema

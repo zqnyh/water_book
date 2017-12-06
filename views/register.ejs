@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="height=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/common.css"/>
+    <link rel="stylesheet" href="/stylesheets/register.css"/>
+</head>
+<body>
+    <div class="register">
+        <div class="regTop">
+            <span>用户注册</span>
+            <a class="back" href="/">&lt;&nbsp;返回</a>
+        </div>
+        <div class="content">
+            <div class="point">
+                <span>注册成功后，手机号也可为登录账号。</span>
+            </div>
+            <form action="/user/signup" method="post">
+                <div class="message">
+                    <input type="tel" placeholder="输入手机号" name="phoneNum" pattern="[0-9]{11}" required/>
+                    <input type="password" name="password"placeholder="请输入6-25位密码" pattern="[0-9A-Za-z]{6,25}" required/>
+                    <input type="text" placeholder="你的姓名"  name="name">
+                    <input type="text" placeholder="宿舍楼宿舍(例如：东楼东411)"  name="address" />
+                </div>
+                <button class="submit" type="submit">注册</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>
+        <%= title %>
+    </title>
+    <!-- <link rel="stylesheet" href="/stylesheets/commologo.pngn.css"/> -->
+    <link rel="stylesheet" href="/stylesheets/login.css"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/??sm.min.css,sm-extend.min.css">
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/??sm.min.js,sm-extend.min.js' charset='utf-8'></script>
+    <script type="text/javascript" src="//g.alicdn.com/msui/sm/0.6.2/js/sm-city-picker.min.js" charset="utf-8"></script>
+    <style>
+        .jianju{
+            margin-top:10px;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+ <div id="login"></div>
+<div class="login_bg">
+    <div id="logo">
+            <img src="/images/logo.png" alt=""/>
+        </div>
+        <form action="/user/signin" method="post">
+                        <div class="userName">
+                <lable>用户名：</lable>
+                <input type="text" name='phoneNum' placeholder="请输入手机号" pattern="[0-9A-Za-z]{6,16}" required/>
+            </div>
+            <div class="passWord">
+                <lable>密&nbsp;&nbsp;&nbsp;码：</lable>
+                <input type="password" name="password" placeholder="请输入密码" pattern="[0-9A-Za-z]{6,25}" required/>
+            </div>
+            <button class="login_btn" type="submit">登&nbsp;&nbsp;录</button>
+            <div class="jianju"></div>
+            <a class="login_btn" href="/user/signup">注&nbsp;&nbsp;册</a>
+        </form>
+    </div>
+</div>
+
+    <script type="text/javascript">
+        $.config = {
+        // 路由功能开关过滤器，返回 false 表示当前点击链接不使用路由
+        routerFilter: function($link) {
+            // 某个区域的 a 链接不想使用路由功能
+            if ($link.is('.col-50 a')) {
+                return false;
+            }
+
+            return true;
+        }
+    };
+
+    </script>
+    
+     
+</body>
+</html>
+
